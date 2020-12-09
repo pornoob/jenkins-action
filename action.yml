@@ -1,0 +1,30 @@
+name: Jenkins Action
+description: Calls a Jenkins Job (it gets CRUMB token before send a POST to the Job) 
+inputs:
+  user:
+    description: Jenkins User
+    default: jenkins
+    required: true
+  token:
+    description: Jenkins User Token/Password
+    default: jenkins
+    required: true
+  url:
+    description: Jenkins BASE URL
+    jenkins: jenkins_host
+    required: true
+  job:
+    description: Jenkins Job Name
+    default: test
+    required: true
+  parameters:
+    description: Jenkins Job Parameters as querystring
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.user }}
+    - ${{ inputs.token }}
+    - ${{ inputs.url }}
+    - ${{ inputs.job }}
+    - ${{ inputs.parameters }}
