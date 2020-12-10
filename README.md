@@ -13,3 +13,15 @@ Calls to Jenkins Job/Pipeline using the CRUMB token. The parameters are optional
 ### `parameters`
 **optional** Jenkins Job/Pipeline parameters. Default `"<an empty string>"`
 
+## Ejemplo de uso
+```yaml
+- name: Requesting Jekins API
+  uses: pornoob/jenkins-action@master
+  with:
+    user: jenkins
+    token: 123123asd123asd1235
+    url: http://jenkins.local
+    job: my-pipeline
+    parameters: ENV=production&delay=0s
+```
+
